@@ -1,13 +1,12 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Chart from './Chart';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <br />
-      <header>
-        API'S & Charts
-      </header>
+      <Chart />
     </div>
   );
 }
