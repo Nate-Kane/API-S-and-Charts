@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Covids } from './HardCodedData';
-// import { BarChart } from 'recharts';
+import { 
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend 
+} from 'recharts';
 
 const options = {
   method: 'GET',
@@ -13,16 +15,23 @@ const options = {
 };
 
 export default () => {
-
-  axios.request(options).then(function (response) {
-    console.log(response.data);
-  }).catch(function (error) {
-    console.error(error);
-  });
+  const [chartData, setChartData] = useState([]);
+  useEffect(() => {
+    console.log(process);
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <div>
       <h1>Chart</h1>
+      <p>{chartData}</p>
     </div>
   );
 }
